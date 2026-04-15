@@ -1,9 +1,13 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Undangan Pernikahan Luxury Bali</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">  <style>
+  <title>Undangan Pernikahan</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -12,11 +16,11 @@
       overflow-x: hidden;
     }
 
-    /* ORNAMEN SAMPING PARALLAX */
+    /* ORNAMEN */
     .ornament {
       position: fixed;
       top: 0;
-      width: 90px;
+      width: 70px;
       height: 100%;
       background: url('https://i.ibb.co/6bQpK7R/bali-ornament.png') repeat-y center;
       background-size: contain;
@@ -30,7 +34,8 @@
     .cover {
       position: fixed;
       inset: 0;
-      background: linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)), url('https://images.unsplash.com/photo-1519741497674-611481863552');
+      background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+                  url('https://images.unsplash.com/photo-1519741497674-611481863552');
       background-size: cover;
       display: flex;
       justify-content: center;
@@ -41,15 +46,9 @@
       text-align: center;
     }
 
-    .cover h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.7em;
-      letter-spacing: 2px;
-    }
-
     .btn {
       margin-top: 20px;
-      padding: 12px 28px;
+      padding: 12px 25px;
       background: #a47148;
       border: none;
       border-radius: 30px;
@@ -59,74 +58,48 @@
 
     header {
       text-align: center;
-      padding: 120px 20px 60px;
+      padding: 100px 20px;
       background: #a47148;
       color: white;
       position: relative;
       z-index: 2;
     }
 
-    header::after {
-      content: "";
-      position: absolute;
-      bottom: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 120px;
-      height: 40px;
-      background: url('https://i.ibb.co/6bQpK7R/bali-ornament.png') no-repeat center;
-      background-size: contain;
-    }
-
-    h1 { font-family: 'Playfair Display', serif; }
-
     section {
-      padding: 50px 20px;
-      text-align: center;
+      padding: 40px 20px;
       position: relative;
       z-index: 2;
+      text-align: center;
     }
 
     .card {
       background: white;
-      margin: 25px auto;
-      padding: 30px;
-      max-width: 520px;
-      border-radius: 25px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      border: 1px solid #e6d3c3;
-      transform: translateY(50px);
+      margin: 20px auto;
+      padding: 25px;
+      max-width: 500px;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
       opacity: 0;
-      transition: 0.7s;
+      transform: translateY(40px);
+      transition: 0.6s;
     }
 
     .card.show {
-      transform: translateY(0);
       opacity: 1;
+      transform: translateY(0);
     }
 
     .gallery img {
       width: 100%;
       border-radius: 15px;
-      margin-top: 12px;
-      transition: transform .3s;
-    }
-    .gallery img:hover { transform: scale(1.05); }
-
-    /* RSVP */
-    form input, form textarea {
-      width: 90%;
-      padding: 10px;
-      margin: 6px 0;
-      border-radius: 10px;
-      border: 1px solid #ccc;
+      margin-top: 10px;
     }
 
     footer {
       background: #a47148;
       color: white;
-      padding: 30px;
       text-align: center;
+      padding: 20px;
     }
 
     .music-btn {
@@ -136,61 +109,71 @@
       background: #a47148;
       color: white;
       border: none;
-      padding: 14px;
+      padding: 12px;
       border-radius: 50%;
       cursor: pointer;
       z-index: 10;
     }
 
-    /* BUNGA JATUH */
-    .flower {
-      position: fixed;
-      top: -50px;
-      width: 20px;
-      animation: fall linear infinite;
-      opacity: 0.6;
-      z-index: 3;
+    /* MOBILE */
+    @media (max-width:600px){
+      .ornament{width:40px;}
+      header{padding:70px 15px;}
+      .card{margin:15px;}
     }
+  </style>
+</head>
 
-    @keyframes fall {
-      to {
-        transform: translateY(110vh) rotate(360deg);
-      }
-    }
-  </style></head>
-<body><div class="ornament left"></div>
-<div class="ornament right"></div><div class="cover" id="cover">
+<body>
+
+<div class="ornament left"></div>
+<div class="ornament right"></div>
+
+<div class="cover" id="cover">
   <h1>Undangan Pernikahan</h1>
-  <p>Nama Pria & Nama Wanita</p>
+  <p>Sathya & Rena</p>
   <button class="btn" onclick="openInvite()">Buka Undangan</button>
-</div><header>
-  <h1>Nama Pria & Nama Wanita</h1>
+</div>
+
+<header>
+  <p id="guestName"></p>
+  <h1>Sathya & Rena</h1>
   <p>Om Swastyastu</p>
-</header><section>
+</header>
+
+<section>
   <div class="card">
     <h2>Hari Bahagia</h2>
-    <p>Sabtu, 20 Desember 2026</p>
-  </div>  <div class="card">
-    <h2>Lokasi</h2>
-    <p>Pura / Gedung</p>
-    <p>Alamat lengkap</p>
-  </div>  <div class="card gallery">
-    <h2>Galeri</h2>
-    <img src="https://images.unsplash.com/photo-1529634893515-47a3b1c0a7c0">
-    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc">
-  </div>  <div class="card">
-    <h2>RSVP</h2>
-    <form>
-      <input placeholder="Nama">
-      <textarea placeholder="Ucapan"></textarea>
-      <button class="btn" type="button">Kirim</button>
-    </form>
+    <p>Sabtu, 22 April 2026</p>
   </div>
-</section><footer>
+
+  <div class="card">
+    <h2>Lokasi</h2>
+    <p>Rumah</p>
+    <p>Jl. Pramuka Gg. Putra No. 16x Karang Medain Barat</p>
+  </div>
+
+  <div class="card gallery">
+    <h2>Galeri</h2>
+    <img src="https://picsum.photos/400?1">
+    <img src="https://picsum.photos/400?2">
+  </div>
+
+  <div class="card">
+    <h2>Ucapan</h2>
+    <p>Merupakan suatu kehormatan bagi kami apabila Anda berkenan hadir.</p>
+  </div>
+</section>
+
+<footer>
   <p>Om Shanti Shanti Shanti Om</p>
-</footer><audio id="music" loop>
+</footer>
+
+<audio id="music" loop>
   <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3">
-</audio><button class="music-btn" onclick="toggleMusic()">🔊</button>
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">🔊</button>
 
 <script>
 function openInvite(){
@@ -198,6 +181,7 @@ function openInvite(){
   document.getElementById('music').play();
 }
 
+// animasi scroll
 const cards = document.querySelectorAll('.card');
 window.addEventListener('scroll', () => {
   cards.forEach(card => {
@@ -208,19 +192,37 @@ window.addEventListener('scroll', () => {
   });
 });
 
+// nama tamu dari link
+const params = new URLSearchParams(window.location.search);
+const guest = params.get('to');
+if(guest){
+  document.getElementById('guestName').innerText = "Kepada Yth: " + guest;
+}
+
 function toggleMusic(){
   const music = document.getElementById('music');
   music.paused ? music.play() : music.pause();
 }
 
 // bunga jatuh
-for(let i=0;i<15;i++){
+for(let i=0;i<10;i++){
   let f = document.createElement('div');
-  f.className='flower';
-  f.innerHTML='🌸';
-  f.style.left=Math.random()*100+'vw';
-  f.style.animationDuration=(5+Math.random()*5)+'s';
+  f.innerHTML = "🌸";
+  f.style.position="fixed";
+  f.style.top="-20px";
+  f.style.left=Math.random()*100+"vw";
+  f.style.fontSize="20px";
+  f.style.animation="fall "+(5+Math.random()*5)+"s linear infinite";
   document.body.appendChild(f);
 }
-</script></body>
+
+</script>
+
+<style>
+@keyframes fall{
+  to{transform:translateY(110vh) rotate(360deg);}
+}
+</style>
+
+</body>
 </html>
