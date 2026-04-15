@@ -3,10 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Undangan Pernikahan</title>
+  <title>Undangan Pawiwahan</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -14,8 +17,60 @@
       background: #f6efe9;
       color: #3e2f2f;
       overflow-x: hidden;
+	  background : url('bg.jpeg');
+		background-size: cover;
+		background-position:center;
     }
+	.section-3col {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 20px;
+		padding: 40px 10px;
+		background : url('bg.jpeg');
+		background-size: cover;
+		background-position:center;
+		position: relative;
+		z-index: 1;
+	}
+	.section-3col::before {
+	  content: "";
+	  position: absolute;
+	  inset: 0;
+	  background: rgba(255,255,255,0.8); /* putih transparan */
+	  z-index: -1;
+	}
 
+.side {
+  width: 25%;
+  font-size: 0.9em;
+  opacity: 0.7;
+}
+
+.center {
+  width: 50%;
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.center h1 {
+  font-family: 'Tangerine', cursive;
+  font-size: 3.2em;
+}
+
+.ballet-<uniquifier> {
+  font-family: "Ballet", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.center h2 {
+  font-family: 'Tangerine';
+  font-size: 5.0em;
+}
     /* ORNAMEN */
     .ornament {
       position: fixed;
@@ -37,6 +92,7 @@
       background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
                   url('bg.jpeg');
       background-size: cover;
+	  background-position: center;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -44,6 +100,8 @@
       color: white;
       z-index: 999;
       text-align: center;
+	  font-family: 'Ephesis';
+		font-size: 1.5em;
     }
 
     .btn {
@@ -100,6 +158,8 @@
       color: white;
       text-align: center;
       padding: 20px;
+	  font-family: 'Ephesis';
+		font-size: 4.0em;
     }
 
     .music-btn {
@@ -116,11 +176,19 @@
     }
 
     /* MOBILE */
-    @media (max-width:600px){
-      .ornament{width:40px;}
-      header{padding:70px 15px;}
-      .card{margin:15px;}
-    }
+@media (max-width:600px){
+  .section-3col {
+    flex-direction: column;
+  }
+
+  .side {
+    width: 90%;
+  }
+
+  .center {
+    width: 95%;
+  }
+}
   </style>
 </head>
 
@@ -130,7 +198,7 @@
 <div class="ornament right"></div>
 
 <div class="cover" id="cover">
-  <h1>Undangan Pernikahan</h1>
+  <h1>Undangan Pawiwahan</h1>
   <p>Sathya & Rena</p>
   <button class="btn" onclick="openInvite()">Buka Undangan</button>
 </div>
@@ -141,28 +209,33 @@
   <p>Om Swastyastu</p>
 </header>
 
-<section>
-  <div class="card">
-    <h2>Hari Bahagia</h2>
-    <p>Sabtu, 22 April 2026</p>
+<section class="section-3col">
+
+  <div class="side">
+    <p>
+      Cinta sejati adalah perjalanan panjang, di mana dua hati saling
+      melengkapi dan bersama menggapai kebahagiaan.
+    </p>
   </div>
 
-  <div class="card">
-    <h2>Lokasi</h2>
-    <p>Rumah</p>
-    <p>Jl. Pramuka Gg. Putra No. 16x Karang Medain Barat</p>
+  <div class="center">
+    <h2>Om Swastyastu</h2>
+    <p>Kami mengundang Anda untuk hadir di pernikahan kami</p>
+
+    <h1>I Made Sathya Wirya Putra</h1>
+    <p>&</p>
+    <h1>Ni Made Rena Devi Purwanti</h1>
+
+    <h2>22 April 2026</h2>
   </div>
 
-  <div class="card gallery">
-    <h2>Galeri</h2>
-    <img src="b1.jpeg">
-    <img src="https://picsum.photos/400?2">
+  <div class="side">
+    <p>
+      Dengan kerendahan hati, kami mengundang kehadiran Anda untuk
+      merayakan hari bahagia kami.
+    </p>
   </div>
 
-  <div class="card">
-    <h2>Ucapan</h2>
-    <p>Merupakan suatu kehormatan bagi kami apabila Anda berkenan hadir.</p>
-  </div>
 </section>
 
 <footer>
