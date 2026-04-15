@@ -94,7 +94,8 @@
       background-size: cover;
 	  background-position: center;
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
+		padding-bottom: 80px;
       align-items: center;
       flex-direction: column;
       color: white;
@@ -103,7 +104,9 @@
 	  font-family: 'Ephesis';
 		font-size: 1.5em;
     }
-
+h1, p{
+	margin: 2px 0;
+	}
     .btn {
       margin-top: 20px;
       padding: 12px 25px;
@@ -117,7 +120,10 @@
     header {
       text-align: center;
       padding: 100px 20px;
-      background: #a47148;
+     background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+                  url('bg.jpeg');
+	background-size: cover;
+	  background-position: center;
       color: white;
       position: relative;
       z-index: 2;
@@ -191,6 +197,58 @@
     width: 95%;
   }
 }
+
+.resepsi {
+  background: url('b1.jpeg') center/cover no-repeat;
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.resepsi-card {
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+  padding: 30px 20px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  max-width: 400px;
+}
+
+.resepsi-text {
+  font-size: 0.9em;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.resepsi-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2em;
+  margin: 15px 0;
+  letter-spacing: 2px;
+}
+
+.btn-map {
+  display: inline-block;
+  margin-top: 20px;
+  background: #c9a24a;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+.resepsi-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 2px;
+  background: #c9a24a;
+  margin: 10px auto;
+}
+
+.resepsi-card {
+  border: 1px solid rgba(255,255,255,0.2);
+}
   </style>
 </head>
 
@@ -200,8 +258,9 @@
 <div class="ornament right"></div>
 
 <div class="cover" id="cover">
-  <h1>Undangan Pawiwahan</h1>
-  <p>Sathya & Rena</p>
+  <p>Undangan Pawiwahan</p>
+  <h1>Sathya & Rena</h1>
+  <p>Mataram | 22 April 2026</p>
   <button class="btn" onclick="openInvite()">Buka Undangan</button>
 </div>
 
@@ -213,12 +272,7 @@
 
 <section class="section-3col">
 
-  <div class="side">
-    <p>
-      Cinta sejati adalah perjalanan panjang, di mana dua hati saling
-      melengkapi dan bersama menggapai kebahagiaan.
-    </p>
-  </div>
+ 
 
   <div class="center">
     <h2>Om Swastyastu</h2>
@@ -231,15 +285,29 @@
     <h2>22 April 2026</h2>
   </div>
 
-  <div class="side">
-    <p>
-      Dengan kerendahan hati, kami mengundang kehadiran Anda untuk
-      merayakan hari bahagia kami.
-    </p>
-  </div>
+ 
 
 </section>
+<section class="resepsi">
+  <div class="resepsi-card">
 
+    <p class="resepsi-text">
+      Merupakan suatu kehormatan & kebahagiaan kami apabila
+      Bapak/Ibu/Saudara/i berkenan hadir memberi doa restu pada :
+    </p>
+
+    <h2 class="resepsi-title">RESEPSI</h2>
+
+    <p>📅 Rabu, 22 April 2026</p>
+    <p>🕒 11.00 WITA - Selesai</p>
+    <p>📍 Jln Pramuka Gang Putra Karang Medain Barat</p>
+
+    <a href="https://maps.app.goo.gl/drKsh7ZWPRzKVrnv9" target="_blank" class="btn-map">
+      📍 Petunjuk Arah
+    </a>
+
+  </div>
+</section>
 <footer>
   <p>Om Shanti Shanti Shanti Om</p>
 </footer>
