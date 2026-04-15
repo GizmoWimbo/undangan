@@ -249,6 +249,18 @@ h1, p{
 .resepsi-card {
   border: 1px solid rgba(255,255,255,0.2);
 }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
   </style>
 </head>
 
@@ -270,7 +282,7 @@ h1, p{
   <p>Om Swastyastu</p>
 </header>
 
-<section class="section-3col">
+<section class="section-3col reveal">
 
  
 
@@ -288,7 +300,7 @@ h1, p{
  
 
 </section>
-<section class="resepsi">
+<section class="resepsi reveal">
   <div class="resepsi-card">
 
     <p class="resepsi-text">
@@ -358,7 +370,18 @@ for(let i=0;i<10;i++){
   f.style.animation="fall "+(5+Math.random()*5)+"s linear infinite";
   document.body.appendChild(f);
 }
+window.addEventListener("scroll", function() {
+  const reveals = document.querySelectorAll(".reveal");
 
+  reveals.forEach(el => {
+    const windowHeight = window.innerHeight;
+    const elementTop = el.getBoundingClientRect().top;
+
+    if (elementTop < windowHeight - 100) {
+      el.classList.add("active");
+    }
+  });
+});
 </script>
 
 <style>
