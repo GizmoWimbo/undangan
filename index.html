@@ -1,0 +1,226 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Pernikahan Luxury Bali</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f6efe9;
+      color: #3e2f2f;
+      overflow-x: hidden;
+    }
+
+    /* ORNAMEN SAMPING PARALLAX */
+    .ornament {
+      position: fixed;
+      top: 0;
+      width: 90px;
+      height: 100%;
+      background: url('https://i.ibb.co/6bQpK7R/bali-ornament.png') repeat-y center;
+      background-size: contain;
+      opacity: 0.12;
+      z-index: 1;
+    }
+    .left { left: 0; }
+    .right { right: 0; transform: scaleX(-1); }
+
+    /* COVER */
+    .cover {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)), url('https://images.unsplash.com/photo-1519741497674-611481863552');
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      z-index: 999;
+      text-align: center;
+    }
+
+    .cover h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.7em;
+      letter-spacing: 2px;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 12px 28px;
+      background: #a47148;
+      border: none;
+      border-radius: 30px;
+      color: white;
+      cursor: pointer;
+    }
+
+    header {
+      text-align: center;
+      padding: 120px 20px 60px;
+      background: #a47148;
+      color: white;
+      position: relative;
+      z-index: 2;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 40px;
+      background: url('https://i.ibb.co/6bQpK7R/bali-ornament.png') no-repeat center;
+      background-size: contain;
+    }
+
+    h1 { font-family: 'Playfair Display', serif; }
+
+    section {
+      padding: 50px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card {
+      background: white;
+      margin: 25px auto;
+      padding: 30px;
+      max-width: 520px;
+      border-radius: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      border: 1px solid #e6d3c3;
+      transform: translateY(50px);
+      opacity: 0;
+      transition: 0.7s;
+    }
+
+    .card.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 15px;
+      margin-top: 12px;
+      transition: transform .3s;
+    }
+    .gallery img:hover { transform: scale(1.05); }
+
+    /* RSVP */
+    form input, form textarea {
+      width: 90%;
+      padding: 10px;
+      margin: 6px 0;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+
+    footer {
+      background: #a47148;
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .music-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #a47148;
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    /* BUNGA JATUH */
+    .flower {
+      position: fixed;
+      top: -50px;
+      width: 20px;
+      animation: fall linear infinite;
+      opacity: 0.6;
+      z-index: 3;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+  </style></head>
+<body><div class="ornament left"></div>
+<div class="ornament right"></div><div class="cover" id="cover">
+  <h1>Undangan Pernikahan</h1>
+  <p>Nama Pria & Nama Wanita</p>
+  <button class="btn" onclick="openInvite()">Buka Undangan</button>
+</div><header>
+  <h1>Nama Pria & Nama Wanita</h1>
+  <p>Om Swastyastu</p>
+</header><section>
+  <div class="card">
+    <h2>Hari Bahagia</h2>
+    <p>Sabtu, 20 Desember 2026</p>
+  </div>  <div class="card">
+    <h2>Lokasi</h2>
+    <p>Pura / Gedung</p>
+    <p>Alamat lengkap</p>
+  </div>  <div class="card gallery">
+    <h2>Galeri</h2>
+    <img src="https://images.unsplash.com/photo-1529634893515-47a3b1c0a7c0">
+    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc">
+  </div>  <div class="card">
+    <h2>RSVP</h2>
+    <form>
+      <input placeholder="Nama">
+      <textarea placeholder="Ucapan"></textarea>
+      <button class="btn" type="button">Kirim</button>
+    </form>
+  </div>
+</section><footer>
+  <p>Om Shanti Shanti Shanti Om</p>
+</footer><audio id="music" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3">
+</audio><button class="music-btn" onclick="toggleMusic()">🔊</button>
+
+<script>
+function openInvite(){
+  document.getElementById('cover').style.display='none';
+  document.getElementById('music').play();
+}
+
+const cards = document.querySelectorAll('.card');
+window.addEventListener('scroll', () => {
+  cards.forEach(card => {
+    const top = card.getBoundingClientRect().top;
+    if(top < window.innerHeight - 50){
+      card.classList.add('show');
+    }
+  });
+});
+
+function toggleMusic(){
+  const music = document.getElementById('music');
+  music.paused ? music.play() : music.pause();
+}
+
+// bunga jatuh
+for(let i=0;i<15;i++){
+  let f = document.createElement('div');
+  f.className='flower';
+  f.innerHTML='🌸';
+  f.style.left=Math.random()*100+'vw';
+  f.style.animationDuration=(5+Math.random()*5)+'s';
+  document.body.appendChild(f);
+}
+</script></body>
+</html>
