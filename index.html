@@ -17,7 +17,7 @@
       background: #f6efe9;
       color: #3e2f2f;
       overflow-x: hidden;
-	  background : url('bg.jpeg');
+	  background : url('bg2.jfif');
 		background-size: cover;
 		background-position:center;
     }
@@ -27,7 +27,7 @@
 		align-items: center;
 		gap: 20px;
 		padding: 40px 10px;
-		background : url('bg.jpeg');
+		background : url('bg2.jfif');
 		background-size: cover;
 		background-position:center;
 		position: relative;
@@ -37,7 +37,7 @@
 	  content: "";
 	  position: absolute;
 	  inset: 0;
-	  background: rgba(255,255,255,0.8); /* putih transparan */
+	  background: rgba(255,255,255,0.5); /* putih transparan */
 	  z-index: -1;
 	}
 
@@ -197,6 +197,11 @@ h1, p{
     width: 95%;
   }
 }
+@media (min-width:768px){
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 
 .resepsi {
   background: url('b1.jpeg') center/cover no-repeat;
@@ -260,7 +265,73 @@ h1, p{
   opacity: 1;
   transform: translateY(0);
 }
+.gallery-section {
+  padding: 60px 20px;
+  text-align: center;
+}
 
+.gallery-section h2 {
+  font-family: 'Cinzel', serif;
+  margin-bottom: 20px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+.header-section {
+  height: 80vh; /* ⬅️ bukan full, tapi tinggi */
+  width: 100%;
+
+  background: url('bg.jpeg') center/cover no-repeat;
+
+  display: flex;
+  align-items: flex-end; /* ⬅️ teks ke bawah */
+  justify-content: center;
+  text-align: center;
+
+  padding: 20px;
+  padding-bottom: 50px;
+
+  position: relative;
+}
+.header-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+}
+
+.header-content {
+  position: relative;
+  color: white;
+}
+.subtitle {
+  font-size: 0.9em;
+}
+
+.header-content h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.3em;
+  margin: 5px 0;
+}
+
+.date {
+  font-size: 1em;
+}
   </style>
 </head>
 
@@ -271,17 +342,20 @@ h1, p{
 
 <div class="cover" id="cover">
   <p>Undangan Pawiwahan</p>
-  <h1>Sathya & Rena</h1>
+  <h1>Kpd Yth </h1>
+  <p id="guestName"></p>
   <p>Mataram | 22 April 2026</p>
   <button class="btn" onclick="openInvite()">Buka Undangan</button>
 </div>
 
-<header>
-  <p id="guestName"></p>
-  <h1>Sathya & Rena</h1>
-  <p>Om Swastyastu</p>
-</header>
 
+<section class="header-section">
+  <div class="header-content">
+    <p class="subtitle">The Wedding of</p>
+    <h1>Made Sathya & Rena Devi</h1>
+    <p class="date">22.04.2026</p>
+  </div>
+</section>
 <section class="section-3col reveal">
 
  
@@ -320,6 +394,20 @@ h1, p{
 
   </div>
 </section>
+
+<section class="gallery-section reveal">
+  <h2>Galeri</h2>
+
+  <div class="gallery">
+    <img src="b1.jpeg">
+    <img src="b1.jpeg">
+    <img src="b1.jpeg">
+    <img src="b1.jpeg">
+    <img src="b1.jpeg">
+    <img src="b1.jpeg">
+  </div>
+</section>
+
 <footer>
   <p>Om Shanti Shanti Shanti Om</p>
 </footer>
@@ -351,7 +439,7 @@ window.addEventListener('scroll', () => {
 const params = new URLSearchParams(window.location.search);
 const guest = params.get('to');
 if(guest){
-  document.getElementById('guestName').innerText = "Kepada Yth: " + guest;
+  document.getElementById('guestName').innerText = guest;
 }
 
 function toggleMusic(){
