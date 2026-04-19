@@ -167,14 +167,7 @@ h1, p{
       margin-top: 10px;
     }
 
-    footer {
-      background: #a47148;
-      color: white;
-      text-align: center;
-      padding: 20px;
-	  font-family: 'Ephesis';
-		font-size: 4.0em;
-    }
+
 
     .music-btn {
       position: fixed;
@@ -274,6 +267,9 @@ h1, p{
 .gallery-section {
   padding: 60px 20px;
   text-align: center;
+    background : url('bg2.jfif');
+		background-size: cover;
+		background-position:center;
 }
 
 .gallery-section h2 {
@@ -285,6 +281,7 @@ h1, p{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
+
 }
 
 .gallery img {
@@ -404,6 +401,46 @@ html, body{
 	outline: 1px solid red;
 	box-sizing: border-box;
 	}
+	
+.footer {
+  text-align: center;
+  padding: 60px 20px;
+  color: #333;
+      background : url('bg2.jfif');
+		background-size: cover;
+		background-position:center;
+}
+
+.footer h3 {
+  font-family: 'Ephesis';
+  font-size: 2em;
+  margin: 15px 0;
+}
+
+.footer .closing {
+  font-family: 'Ephesis';
+  font-size: 1.8em;
+  color: #bfa046; /* emas */
+}
+
+.footer .names {
+  margin-top: 20px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.footer::before {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: #bfa046;
+  margin: 0 auto 20px;
+}
+
+.yth{
+	font-family: 'Poppins', sans-serif;
+	font-size : 0.7em;
+}
   </style>
 </head>
 
@@ -414,8 +451,8 @@ html, body{
 
 <div class="cover" id="cover">
   <p>Undangan Pawiwahan</p>
-  <h1>Kpd Yth </h1>
-  <p id="guestName"></p>
+  <h1 class="yth">Kpd Yth </h1>
+  <p id="guestName" class="yth"></p>
   <p>Mataram | 22 April 2026</p>
   <button class="btn" onclick="openInvite()">Buka Undangan</button>
 </div>
@@ -424,7 +461,7 @@ html, body{
 <section class="header-section">
   <div class="header-content">
     <p class="subtitle">The Wedding of</p>
-    <h1>Made Sathya & Rena Devi</h1>
+    <h1>Made Sathya & Made Rena</h1>
     <p class="date">22.04.2026</p>
   </div>
 </section>
@@ -461,7 +498,7 @@ html, body{
     </p>
 
     <p class="couple-address">
-      Jln Dangin Labak, Desa Beraban Tabanan (Gang Rama)
+      18 Juni 1999
     </p>
   </div>
 
@@ -481,7 +518,7 @@ html, body{
     </p>
 
     <p class="couple-address">
-      Alamat lengkap mempelai wanita
+      06 Maret 2003
     </p>
   </div>
 
@@ -523,8 +560,16 @@ html, body{
   </div>
 </section>
 
-<footer>
-  <p>Om Shanti Shanti Shanti Om</p>
+<footer class="footer">
+  <p>
+    Atas kehadiran dan doa restu Bapak/Ibu/Saudara/i,<br>
+    kami mengucapkan terima kasih yang sebesar-besarnya
+  </p>
+
+  <h3>Om Santih, Santih, Santih Om</h3>
+
+  <p class="names">Kami yang berbahagia</p>
+  <h4>Made Sathya & Made Rena</h4>
 </footer>
 
 <audio id="music" loop>
@@ -571,7 +616,7 @@ function toggleMusic(){
 // bunga jatuh
 for(let i=0;i<10;i++){
   let f = document.createElement('div');
-  f.innerHTML = "🌸";
+  f.innerHTML = "";
   f.style.position="fixed";
   f.style.top="-20px";
   f.style.left=Math.random()*100+"vw";
