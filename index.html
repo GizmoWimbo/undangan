@@ -77,7 +77,7 @@
       top: 0;
       width: 70px;
       height: 100%;
-      background: url('https://i.ibb.co/6bQpK7R/bali-ornament.png') repeat-y center;
+      background: url('bg2.jfif') repeat-y center;
       background-size: contain;
       opacity: 0.12;
       z-index: 1;
@@ -103,7 +103,13 @@
       text-align: center;
 	  font-family: 'Ephesis';
 		font-size: 1.5em;
+    transition: all 0.8s ease;
     }
+    .cover.hide {
+  opacity: 0;
+  transform: translateY(-60px) scale(0.98);
+  filter: blur(4px);
+}
 h1, p{
 	margin: 2px 0;
 	}
@@ -332,6 +338,64 @@ h1, p{
 .date {
   font-size: 1em;
 }
+.couple {
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  align-items: center;
+}
+.couple-card {
+  background: #f5f5f5;
+  border-radius: 25px;
+  padding: 80px 20px 30px;
+  text-align: center;
+  max-width: 350px;
+  width: 100%;
+
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+.couple-img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+
+  border-radius: 50%;
+  border: 6px solid #c9a24a;
+
+  position: absolute;
+  top: -90px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.couple-name {
+  font-family: 'Great Vibes', cursive;
+  color: #c9a24a;
+  font-size: 1.6em;
+  margin-bottom: 10px;
+}
+.couple-desc {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.couple-address {
+  font-size: 0.9em;
+  color: #888;
+}
+@media (max-width:600px){
+  .couple-img {
+    width: 150px;
+    height: 150px;
+    top: -75px;
+  }
+
+  .couple-card {
+    padding-top: 70px;
+  }
+}
   </style>
 </head>
 
@@ -360,7 +424,7 @@ h1, p{
 
  
 
-  <div class="center">
+  <!-- <div class="center">
     <h2>Om Swastyastu</h2>
     <p>Kami mengundang Anda untuk hadir di pernikahan kami</p>
 
@@ -369,8 +433,51 @@ h1, p{
     <h1>Ni Made Rena Devi Purwanti</h1>
 
     <h2>22 April 2026</h2>
+  </div> -->
+
+  <section class="couple">
+
+  <!-- Pria -->
+  <div class="couple-card reveal">
+    <img src="b1.jpeg" class="couple-img">
+
+    <h2 class="couple-name">
+      I Made Sathya Wirya Putra
+    </h2>
+
+    <p class="couple-desc">
+      Putra Pertama Dari Pasangan <br>
+      <b>I Ketut Putra Mahendra</b> <br>
+      & <br>
+      <b>Ni Luh Sri Asti</b>
+    </p>
+
+    <p class="couple-address">
+      Jln Dangin Labak, Desa Beraban Tabanan (Gang Rama)
+    </p>
   </div>
 
+  <!-- Wanita -->
+  <div class="couple-card reveal">
+    <img src="bg.jpeg" class="couple-img">
+
+    <h2 class="couple-name">
+      Ni Made Rena Devi Purwanti
+    </h2>
+
+    <p class="couple-desc">
+      Putri Kedua Dari Pasangan <br>
+      <b>Nama Ayah</b> <br>
+      & <br>
+      <b>Nama Ibu</b>
+    </p>
+
+    <p class="couple-address">
+      Alamat lengkap mempelai wanita
+    </p>
+  </div>
+
+</section>
  
 
 </section>
@@ -413,15 +520,21 @@ h1, p{
 </footer>
 
 <audio id="music" loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3">
+  <source src="https://www.youtube.com/watch?v=KU3PWH_Tkr4&t=15s">
 </audio>
 
 <button class="music-btn" onclick="toggleMusic()">🔊</button>
 
 <script>
 function openInvite(){
-  document.getElementById('cover').style.display='none';
+  const cover = document.getElementById('cover');
+
+  cover.classList.add('hide'); // animasi dulu
   document.getElementById('music').play();
+
+  setTimeout(() => {
+    cover.style.display = 'none'; // baru hilang setelah animasi
+  }, 800); // harus sama dengan durasi CSS
 }
 
 // animasi scroll
